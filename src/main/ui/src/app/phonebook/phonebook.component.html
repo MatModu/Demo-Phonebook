@@ -1,0 +1,21 @@
+<h2>Users</h2>
+
+<div>
+  <label for="new-user">User Name: </label>
+  <input id="new-user" #userName />
+
+  <!-- (click) passes input value to add() and then clears the input 
+  <button class="add-button" (click)="add(heroName.value); heroName.value=''">
+    Add hero
+  </button>-->
+</div>
+
+<ul class="users">
+  <li *ngFor="let user of users">
+    <a>
+      <span class="badge">{{user.id}}</span> {{user.firstName}}
+    </a>
+    <!-- <button class="delete" title="delete user"
+      (click)="delete(user)">x</button>-->
+  </li>
+</ul>

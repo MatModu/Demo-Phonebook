@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-sm-6, col-md-6">
+  <h2>User Registration</h2>
+  <form [formGroup]="phonebookForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" id="firstName"
+            formControlName="firstName">       
+          <div class="alert alert-danger" *ngIf="phonebookForm.get('firstName')?.invalid 
+            && phonebookForm.get('firstName')?.touched">
+            <div *ngIf="phonebookForm.get('firstName')?.errors?.required">
+              First Name is required.
+            </div>
+            <div *ngIf="phonebookForm.get('firstName')?.errors?.minlength">
+              First Name must be at least 5 characters long.
+            </div>
+          </div>                      
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" id="lastName"
+            formControlName="lastName">       
+          <div class="alert alert-danger" *ngIf="phonebookForm.get('lastName')?.invalid 
+            && phonebookForm.get('lastName')?.touched">
+            <div *ngIf="phonebookForm.get('lastName')?.errors?.required">
+              Last Name is required.
+            </div>
+            <div *ngIf="phonebookForm.get('lastName')?.errors?.minlength">
+              Last Name must be at least 3 characters long.
+            </div>
+          </div>                      
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="text" class="form-control" id="phone"
+            formControlName="phone">  
+          <div class="alert alert-danger" *ngIf="phonebookForm.get('lastName')?.invalid 
+            && phonebookForm.get('lastName')?.touched">
+            <div *ngIf="phonebookForm.get('lastName')?.errors?.required">
+              Phone Number is required.
+            </div>
+          </div>                      
+        </div>
+        <button type="submit" [disabled]="phonebookForm.invalid" class="btn btn-success">ADD</button>
+      </form>
+      <div class="row"> 
+        <div class="col-sm-6, col-md-6">
+          <div class="alert alert-info" *ngIf=isAdded>
+            <p>User Added SuccessFully!</p>
+            <button class="btn btn-primary" (click)="resetUserForm()">Add another user</button>
+          </div>
+        </div>  
+      </div>
+  </div>
+</div>
